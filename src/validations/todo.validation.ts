@@ -1,11 +1,11 @@
-const Joi = require('@hapi/joi');
+import Joi from "@hapi/joi";
 
 const basicPayload = {
-  name: Joi.string().required().description('the record name')
+  name: Joi.string().required().description("the record name")
 };
 
 const idPayload = {
-  id: Joi.string().required().description('record id')
+  id: Joi.string().required().description("record id")
 };
 
 const validations = {

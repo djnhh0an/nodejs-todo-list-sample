@@ -28,7 +28,7 @@ const UserSchema = new mongoose_1.default.Schema({
     },
     isAdmin: Boolean,
 }, {
-    collection: 'User'
+    collection: "User"
 });
 UserSchema.methods.generateAuthToken = function () {
     const token = jsonwebtoken_1.default.sign({

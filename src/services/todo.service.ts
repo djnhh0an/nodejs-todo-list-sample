@@ -1,4 +1,4 @@
-import { create, list, deleteById } from '../models/todo.model'
+import { create, list, deleteById } from "../models/todo.model";
 
 export const createTodo = async (name: string) => {
   try {
@@ -15,9 +15,9 @@ export const createTodo = async (name: string) => {
 
 export const listTodo = async () => {
   return await list();
-}
+};
 
 export const deleteTodo = async (id: string) => {
   return await deleteById(id);
-}
+};
 

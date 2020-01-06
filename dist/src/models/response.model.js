@@ -2,16 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const basicResponse = {
     200: {
-        description: 'Success',
+        description: "Success",
     },
     400: {
-        description: 'BadRequest',
+        description: "BadRequest",
     },
     404: {
-        description: 'ResourceNotFound',
+        description: "ResourceNotFound",
     },
     500: {
-        description: 'InternalServerError',
+        description: "InternalServerError",
     },
 };
 exports.default = basicResponse;

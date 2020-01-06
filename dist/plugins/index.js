@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Inert = require('inert');
-const Vision = require('vision');
-const HapiSwagger = require('hapi-swagger');
-const config = require('../config');
+const Inert = require("inert");
+const Vision = require("vision");
+const HapiSwagger = require("hapi-swagger");
+const config = require("../config/index");
 exports.default = [
     Inert,
     Vision,
@@ -17,9 +17,9 @@ exports.default = [
             },
             securityDefinitions: {
                 jwt: {
-                    type: 'apiKey',
-                    name: 'Authorization',
-                    in: 'header',
+                    type: "apiKey",
+                    name: "Authorization",
+                    in: "header",
                 },
             },
         },

@@ -2,23 +2,23 @@ import {
   todoCreateController,
   todoListController,
   todoDeleteController
-} from '../controllers/todo.controller';
+} from "../controllers/todo.controller";
 
-import basicResponse from '../models/response.model';
+import basicResponse from "../models/response.model";
 import {
   validations,
   deleteValidation
-} from '../validations/todo.validation';
+} from "../validations/todo.validation";
 
 const todoRoute = [
   {
-    method: 'GET',
-    path: '/todo',
+    method: "GET",
+    path: "/todo",
     config: {
-      tags: ['api'],
-      description: 'Get records in Todo',
+      tags: ["api"],
+      description: "Get records in Todo",
       plugins: {
-        'hapi-swagger': {
+        "hapi-swagger": {
           responses: basicResponse
         }
       }
@@ -26,15 +26,15 @@ const todoRoute = [
     handler: todoListController
   },
   {
-    method: 'POST',
-    path: '/todo',
+    method: "POST",
+    path: "/todo",
     config: {
-      tags: ['api'],
-      description: 'Create new record in Todo',
+      tags: ["api"],
+      description: "Create new record in Todo",
       validate: validations.name,
       plugins: {
-        'hapi-swagger': {
-          payloadType: 'form',
+        "hapi-swagger": {
+          payloadType: "form",
           responses: basicResponse
         }
       }
@@ -42,14 +42,14 @@ const todoRoute = [
     handler: todoCreateController
   },
   {
-    method: 'DELETE',
-    path: '/todo/{id}',
+    method: "DELETE",
+    path: "/todo/{id}",
     config: {
-      tags: ['api'],
-      description: 'Delete record by id in Todo',
+      tags: ["api"],
+      description: "Delete record by id in Todo",
       validate: deleteValidation.id,
       plugins: {
-        'hapi-swagger': {
+        "hapi-swagger": {
           responses: basicResponse
         }
       }

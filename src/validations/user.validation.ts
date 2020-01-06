@@ -1,4 +1,4 @@
-const Joi = require('@hapi/joi');
+import Joi from "@hapi/joi";
 
 const validateUser = (user: object) => {
     const schema = Joi.object({
@@ -7,12 +7,12 @@ const validateUser = (user: object) => {
         password: Joi.string().min(6).max(255).required()
     });
 
-    return schema.validate(user)
-}
+    return schema.validate(user);
+};
 
 const basicPayload = {
-    email: Joi.string().required().description('email'),
-    password: Joi.string().required().description('password'),
+    email: Joi.string().required().description("email"),
+    password: Joi.string().required().description("password"),
 };
 
 const validations = {
@@ -22,4 +22,4 @@ const validations = {
 export {
     validateUser,
     validations
-}
+};

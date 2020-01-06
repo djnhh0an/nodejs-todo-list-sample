@@ -1,7 +1,7 @@
-const Inert = require('inert');
-const Vision = require('vision');
-const HapiSwagger = require('hapi-swagger');
-const config = require('../config');
+import Inert from "inert";
+import Vision from "vision";
+import HapiSwagger from "hapi-swagger";
+import config from "../config";
 
 export default [
   Inert,
@@ -16,9 +16,9 @@ export default [
       },
       securityDefinitions: {
         jwt: {
-          type: 'apiKey',
-          name: 'Authorization',
-          in: 'header',
+          type: "apiKey",
+          name: "Authorization",
+          in: "header",
         },
       },
     },

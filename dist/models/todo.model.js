@@ -19,9 +19,9 @@ const TodoSchema = new mongoose_1.default.Schema({
         default: Date.now
     }
 }, {
-    collection: 'Todo'
+    collection: "Todo"
 });
-exports.model = mongoose_1.default.model('Todo', TodoSchema);
+exports.model = mongoose_1.default.model("Todo", TodoSchema);
 exports.list = () => exports.model.find();
 exports.create = (todo) => exports.model.create(todo);
 exports.findByName = (name) => exports.model.findOne({ name });

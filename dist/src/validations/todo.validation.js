@@ -1,19 +1,22 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Joi = require('@hapi/joi');
+const joi_1 = __importDefault(require("@hapi/joi"));
 const basicPayload = {
-    name: Joi.string().required().description('the record name')
+    name: joi_1.default.string().required().description("the record name")
 };
 const idPayload = {
-    id: Joi.string().required().description('record id')
+    id: joi_1.default.string().required().description("record id")
 };
 const validations = {
-    name: { payload: Joi.object(basicPayload) },
+    name: { payload: joi_1.default.object(basicPayload) },
 };
 exports.validations = validations;
 const deleteValidation = {
     id: {
-        params: Joi.object(idPayload)
+        params: joi_1.default.object(idPayload)
     }
 };
 exports.deleteValidation = deleteValidation;

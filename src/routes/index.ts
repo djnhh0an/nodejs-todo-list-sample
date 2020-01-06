@@ -1,4 +1,4 @@
-import authRoute from './auth.route';
+import authRoute from "./auth.route";
 import todoRoute from "./todo.route";
 
 const routes = [

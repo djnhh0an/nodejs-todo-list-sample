@@ -8,15 +8,15 @@ const response_model_1 = __importDefault(require("../models/response.model"));
 const user_validation_1 = require("../validations/user.validation");
 const routes = [
     {
-        method: 'POST',
-        path: '/users/login',
+        method: "POST",
+        path: "/users/login",
         config: {
-            tags: ['api'],
-            description: 'login',
+            tags: ["api"],
+            description: "login",
             validate: user_validation_1.validations.user,
             plugins: {
-                'hapi-swagger': {
-                    payloadType: 'form',
+                "hapi-swagger": {
+                    payloadType: "form",
                     responses: response_model_1.default
                 }
             }
@@ -24,15 +24,15 @@ const routes = [
         handler: user_controller_1.loginController
     },
     {
-        method: 'POST',
-        path: '/users',
+        method: "POST",
+        path: "/users",
         config: {
-            tags: ['api'],
-            description: 'create a new user',
+            tags: ["api"],
+            description: "create a new user",
             validate: user_validation_1.validations.user,
             plugins: {
-                'hapi-swagger': {
-                    payloadType: 'form',
+                "hapi-swagger": {
+                    payloadType: "form",
                     responses: response_model_1.default
                 }
             }

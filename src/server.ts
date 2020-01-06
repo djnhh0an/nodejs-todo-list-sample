@@ -1,8 +1,8 @@
-import Hapi from '@hapi/hapi';
-import routes from './routes';
-import plugins from './plugins';
-import config from './config';
-import { connect } from './middlewares/mongodb';
+import Hapi from "@hapi/hapi";
+import routes from "./routes";
+import * as plugins from "./plugins";
+import config from "./config";
+import { connect } from "./middlewares/mongodb";
 
 const init = async () => {
     const server = new Hapi.Server({
@@ -10,13 +10,13 @@ const init = async () => {
         host: config.host
     });
     server.route(routes);
-    await server.register(plugins);
+    await server.register(plugins as any);
     await server.start();
-    console.info('INFO: Server running on %s/documentation', server.info.uri);
+    console.info("INFO: Server running on %s/documentation", server.info.uri);
     connect();
 };
 
-process.on('unhandledRejection', (err) => {
+process.on("unhandledRejection", (err) => {
     console.log(err);
     process.exit(1);
 });

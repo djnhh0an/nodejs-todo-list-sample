@@ -1,4 +1,4 @@
-import mongooes from 'mongoose';
+import mongooes from "mongoose";
 
 const TodoSchema = new mongooes.Schema(
     {
@@ -17,10 +17,10 @@ const TodoSchema = new mongooes.Schema(
         }
     },
     {
-        collection: 'Todo'
+        collection: "Todo"
     }
 );
-export const model = mongooes.model('Todo', TodoSchema);
+export const model = mongooes.model("Todo", TodoSchema);
 export const list = () => model.find();
 export const create = (todo: any) => model.create(todo);
 export const findByName = (name: any) => model.findOne({ name });

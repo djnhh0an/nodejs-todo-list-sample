@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const config_1 = __importDefault(require("../config"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const mongoose_1 = __importDefault(require("mongoose"));
+class UserModel {
+}
+exports.UserModel = UserModel;
 const UserSchema = new mongoose_1.default.Schema({
     name: {
         type: String,
@@ -28,23 +31,21 @@ const UserSchema = new mongoose_1.default.Schema({
     },
     isAdmin: Boolean,
 }, {
-    collection: 'User'
+    collection: "User"
 });
-UserSchema.methods.generateAuthToken = function () {
+const generateAuthToken = function () {
     const token = jsonwebtoken_1.default.sign({
         _id: this._id,
         isAdmin: this.isAdmin
-    }, config_1.default.private_key);
+    }, config_1.default.privateKey);
     return token;
 };
+exports.generateAuthToken = generateAuthToken;
 const model = mongoose_1.default.model("User", UserSchema);
 const findByEmail = function (email) {
     return model.findOne({ email });
 };
+exports.findByEmail = findByEmail;
 const createUser = (user) => model.create(user);
-module.exports = {
-    User: model,
-    findByEmail,
-    createUser
-};
+exports.createUser = createUser;
 //# sourceMappingURL=user.model.js.map

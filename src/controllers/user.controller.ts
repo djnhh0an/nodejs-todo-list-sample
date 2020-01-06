@@ -1,11 +1,11 @@
-const userService = require('../services/user.service');
+import { login, createNewUser } from "../services/user.service";
 
 const loginController = (request: any, h: any) => {
-    return userService.login(request.payload);
+    return login(request.payload, h);
 };
 
 const createNewUserController = (request: any, h: any) => {
-    return userService.createNewUser(request.payload);
+    return createNewUser(request.payload, h);
 };
 
 export {

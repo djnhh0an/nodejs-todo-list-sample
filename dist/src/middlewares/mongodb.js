@@ -15,12 +15,12 @@ const connect = () => {
         poolSize: 10
     }, err => {
         if (err) {
-            console.error('ERROR: An error happened whilst connecting to mongodb', {
+            console.error("ERROR: An error happened whilst connecting to mongodb", {
                 err
             });
         }
         else {
-            console.info('INFO: Connect to mongodb successfully.');
+            console.info("INFO: Connect to mongodb successfully.");
         }
     });
 };

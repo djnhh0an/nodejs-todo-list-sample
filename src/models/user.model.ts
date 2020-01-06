@@ -1,6 +1,13 @@
-import config from '../config';
-import jwt from 'jsonwebtoken';
-import mongoose from 'mongoose';
+import config from "../config";
+import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+
+export class UserModel  {
+    name: string;
+    email: string;
+    password: string;
+    isAdmin: boolean;
+}
 
 const UserSchema = new mongoose.Schema(
     {
@@ -26,29 +33,29 @@ const UserSchema = new mongoose.Schema(
         isAdmin: Boolean,
     },
     {
-        collection: 'User'
+        collection: "User"
     }
 );
 
-UserSchema.methods.generateAuthToken = function () {
+const generateAuthToken = function () {
     const token = jwt.sign({
         _id: this._id,
         isAdmin: this.isAdmin
-    }, config.private_key);
+    }, config.privateKey);
 
     return token;
-}
+};
 
 const model = mongoose.model("User", UserSchema);
 
-const findByEmail = function (email: string) {
-    return model.findOne({ email })
+const findByEmail = function (email: string){
+    return model.findOne({ email });
 };
 
 const createUser = (user: object) => model.create(user);
 
-module.exports = {
-    User: model,
+export {
     findByEmail,
-    createUser
+    createUser,
+    generateAuthToken
 };
