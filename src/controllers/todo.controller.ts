@@ -13,4 +13,4 @@ const todoDeleteController = async (request: any, h: any) => {
   return await deleteTodo(id);
 }
 
-export default { todoCreateController, todoListController, todoDeleteController };
+export { todoCreateController, todoListController, todoDeleteController };

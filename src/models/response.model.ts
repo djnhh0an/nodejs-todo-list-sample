@@ -1,5 +1,3 @@
-import { deleteTodo } from "src/services/todo.service";
-
 const basicResponse = {
   200: {
     description: 'Success',

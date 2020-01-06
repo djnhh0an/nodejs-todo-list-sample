@@ -5,7 +5,7 @@ import config from './config';
 import { connect } from './middlewares/mongodb';
 
 const init = async () => {
-    const server = Hapi.server({
+    const server = new Hapi.Server({
         port: config.port,
         host: config.host
     });

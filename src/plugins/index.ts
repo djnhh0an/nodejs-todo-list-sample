@@ -3,7 +3,7 @@ const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 const config = require('../config');
 
-module.exports = [
+export default [
   Inert,
   Vision,
   {

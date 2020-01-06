@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const config = require('../config');
+import mongoose from 'mongoose';
+import config from '../config';
 
 const connect = () => {
   mongoose.Promise = global.Promise;
@@ -21,11 +21,11 @@ const connect = () => {
   });
 };
 
-const disconnect = done => {
+const disconnect = (done: any) => {
   mongoose.disconnect(done);
 };
 
-module.exports = {
+export {
   connect,
   disconnect
 };
