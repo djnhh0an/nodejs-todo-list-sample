@@ -1,8 +1,8 @@
-const Hapi = require('@hapi/hapi');
-const routes = require('./routes');
-const plugins = require('./plugins')
-const config = require('./config');
-const { connect } = require('./middlewares/mongodb');
+import Hapi from '@hapi/hapi';
+import routes from './routes';
+import plugins from './plugins';
+import config from './config';
+import { connect } from './middlewares/mongodb';
 
 const init = async () => {
     const server = Hapi.server({

@@ -1,3 +1,5 @@
+import { deleteTodo } from "src/services/todo.service";
+
 const basicResponse = {
   200: {
     description: 'Success',
@@ -13,4 +15,4 @@ const basicResponse = {
   },
 };
 
-module.exports = basicResponse;
+export default basicResponse;

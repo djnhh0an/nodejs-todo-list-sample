@@ -1,6 +1,6 @@
-const config = require('../config');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+import config from '../config';
+import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
     {
@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema(
         isAdmin: Boolean,
     },
     {
-        collection : 'User'
+        collection: 'User'
     }
 );
 
@@ -39,11 +39,16 @@ UserSchema.methods.generateAuthToken = function () {
     return token;
 }
 
-const User = mongoose.model("User", UserSchema);
+const model = mongoose.model("User", UserSchema);
 
-const findByEmail = email => User.findOne({ email });
+const findByEmail = function (email: string) {
+    return model.findOne({ email })
+};
+
+const createUser = (user: object) => model.create(user);
 
 module.exports = {
-    User,
-    findByEmail
+    User: model,
+    findByEmail,
+    createUser
 };
