@@ -4,7 +4,7 @@ import {
   todoDeleteController
 } from "../controllers/todo.controller";
 
-import basicResponse from "../models/response.model";
+import basicResponse from "./response.model";
 import {
   validations,
   deleteValidation,

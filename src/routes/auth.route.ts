@@ -1,5 +1,5 @@
 import { loginController, createNewUserController } from "../controllers/user.controller";
-import basicResponse  from "../models/response.model";
+import basicResponse  from "./response.model";
 import { validations } from "../validations/user.validation";
 import { ServerRoute } from "@hapi/hapi";
 
