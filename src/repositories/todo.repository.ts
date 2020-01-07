@@ -26,7 +26,15 @@ const TodoSchema = new mongoose.Schema(
 
 export const model = mongoose.model<TodoDocument>("Todo", TodoSchema);
 
+function toTodoModel(todoDocument: TodoDocument): Todo {
+    return {
+        name: todoDocument.name,
+        createdAt: todoDocument.createdAt,
+        updatedAt: todoDocument.updatedAt
+    };
+}
+
 export const list = () => model.find();
-export const create = (todo: { name: string }): Promise<Todo> => model.create(todo);
+export const create = (todo: { name: string }): Promise<Todo> => model.create(todo).then(result => toTodoModel(result));
 export const findByName = (name: string) => model.findOne({ name });
 export const deleteById = (id: string) => model.findByIdAndDelete(mongoose.Types.ObjectId(id));

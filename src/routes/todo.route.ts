@@ -7,7 +7,8 @@ import {
 import basicResponse from "../models/response.model";
 import {
   validations,
-  deleteValidation
+  deleteValidation,
+  todoObjectValidation
 } from "../validations/todo.validation";
 import { ServerRoute } from "@hapi/hapi";
 
@@ -38,6 +39,9 @@ const todoRoute: ServerRoute[] = [
           payloadType: "form",
           responses: basicResponse
         }
+      },
+      response: {
+        schema: todoObjectValidation
       }
     },
     handler: todoCreateController
