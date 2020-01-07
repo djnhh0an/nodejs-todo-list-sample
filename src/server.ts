@@ -1,6 +1,6 @@
 import Hapi from "@hapi/hapi";
 import routes from "./routes";
-import * as plugins from "./plugins";
+import plugins from "./plugins";
 import config from "./config";
 import { connect } from "./middlewares/mongodb";
 
@@ -21,4 +21,6 @@ process.on("unhandledRejection", (err) => {
     process.exit(1);
 });
 
-init();
+(async () => {
+    await init();
+})();
