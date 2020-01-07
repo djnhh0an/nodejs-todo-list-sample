@@ -1,5 +1,5 @@
 import { validateUser } from "../validations/user.validation";
-import { findByEmail, createUser, generateAuthToken } from "../models/user.model";
+import { findByEmail, createUser, generateAuthToken } from "../repositories/user.model";
 import bcrypt from "bcrypt";
 
 // todo service shouldn't care about statusCode

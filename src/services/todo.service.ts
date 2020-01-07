@@ -1,4 +1,4 @@
-import { create, list, deleteById } from "../models/todo.model";
+import { create, list, deleteById } from "../repositories/todo.repository";
 
 export const createTodo = async (name: string) => {
   try {
