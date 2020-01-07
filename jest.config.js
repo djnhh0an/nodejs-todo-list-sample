@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     globals: {
         "ts-jest": {
             tsConfig: "tsconfig.json"
@@ -12,7 +12,7 @@ export default {
         "^.+\\.(ts|tsx)$": "ts-jest"
     },
     testMatch: [
-        "**/test/**/*.test.(ts|js)"
+        "**/__tests__/**/*.tests.(ts|js)"
     ],
     testEnvironment: "node"
 };
