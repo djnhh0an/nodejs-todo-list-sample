@@ -1,14 +1,17 @@
 import { createTodo, listTodo, deleteTodo } from "../services/todo.service";
+import { Lifecycle } from "@hapi/hapi";
 
-const todoCreateController = async (request: any, h: any) => {
-  return await createTodo(request.payload);
+type createPayload = { name: string };
+const todoCreateController: Lifecycle.Method = async (request, h) => {
+  const payload = request.payload as createPayload;
+  return await createTodo(payload.name);
 };
 
-const todoListController = async (request: any, h: any) => {
+const todoListController: Lifecycle.Method = async (request, h) => {
   return await listTodo();
 };
 
-const todoDeleteController = async (request: any, h: any) => {
+const todoDeleteController: Lifecycle.Method = async (request, h) => {
   const { id } = request.params;
   return await deleteTodo(id);
 };

@@ -4,17 +4,19 @@ import {
   todoDeleteController
 } from "../controllers/todo.controller";
 
-import basicResponse from "../models/response.model";
+import basicResponse from "./response.model";
 import {
   validations,
-  deleteValidation
+  deleteValidation,
+  todoObjectValidation
 } from "../validations/todo.validation";
+import { ServerRoute } from "@hapi/hapi";
 
-const todoRoute = [
+const todoRoute: ServerRoute[] = [
   {
     method: "GET",
     path: "/todo",
-    config: {
+    options: {
       tags: ["api"],
       description: "Get records in Todo",
       plugins: {
@@ -28,7 +30,7 @@ const todoRoute = [
   {
     method: "POST",
     path: "/todo",
-    config: {
+    options: {
       tags: ["api"],
       description: "Create new record in Todo",
       validate: validations.name,
@@ -37,6 +39,9 @@ const todoRoute = [
           payloadType: "form",
           responses: basicResponse
         }
+      },
+      response: {
+        schema: todoObjectValidation
       }
     },
     handler: todoCreateController
@@ -44,7 +49,7 @@ const todoRoute = [
   {
     method: "DELETE",
     path: "/todo/{id}",
-    config: {
+    options: {
       tags: ["api"],
       description: "Delete record by id in Todo",
       validate: deleteValidation.id,
