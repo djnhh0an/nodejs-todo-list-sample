@@ -1,6 +1,12 @@
-import mongooes from "mongoose";
+import mongoose from "mongoose";
 
-const TodoSchema = new mongooes.Schema(
+type Todo = {
+    name: string;
+    createdAt: Date;
+    updatedAt: Date;
+};
+
+const TodoSchema = new mongoose.Schema(
     {
         name: {
             type: Object,
@@ -20,8 +26,9 @@ const TodoSchema = new mongooes.Schema(
         collection: "Todo"
     }
 );
-export const model = mongooes.model("Todo", TodoSchema);
+
+export const model = mongoose.model("Todo", TodoSchema);
 export const list = () => model.find();
-export const create = (todo: any) => model.create(todo);
-export const findByName = (name: any) => model.findOne({ name });
-export const deleteById = (id: any) => model.findByIdAndDelete(mongooes.Types.ObjectId(id));
+export const create = (todo: { name: string }) => model.create(todo);
+export const findByName = (name: string) => model.findOne({ name });
+export const deleteById = (id: string) => model.findByIdAndDelete(mongoose.Types.ObjectId(id));

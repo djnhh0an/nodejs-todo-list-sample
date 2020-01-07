@@ -7,15 +7,15 @@
     "build": "npm run build-ts && npm run lint",
     "serve": "node dist/src/server.js",
     "watch-node": "nodemon dist/src/server.js",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "test": "jest --forceExit --coverage --verbose",
     "watch-test": "npm run test -- --watchAll",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
     "debug": "npm run build && npm run watch-debug",
-    "serve-debug": "nodemon --inspect dist/server.js",
-    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\""
+    "serve-debug": "nodemon --inspect dist/src/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "author": "Hoan Tran",
   "license": "ISC",
@@ -23,10 +23,7 @@
     "@hapi/boom": "7.4.11",
     "@hapi/hapi": "^18.4.0",
     "@hapi/joi": "^16.1.8",
-    "@types/hapi__hapi": "^18.2.6",
-    "@types/node": "^13.1.4",
-    "@types/shelljs": "^0.8.6",
-    "@typescript-eslint/parser": "^2.14.0",
+    
     "bcrypt": "^3.0.7",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
@@ -46,7 +43,12 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/mongoose": "^5.5.38",
     "@types/vision": "^5.3.6",
+    "@types/hapi__hapi": "^18.2.6",
+    "@types/node": "^13.1.4",
+    "@types/shelljs": "^0.8.6",
+    "@typescript-eslint/parser": "^2.14.0",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "concurrently": "^5.0.0"
   }
 }

@@ -1,12 +1,13 @@
 import { loginController, createNewUserController } from "../controllers/user.controller";
 import basicResponse  from "../models/response.model";
 import { validations } from "../validations/user.validation";
+import { ServerRoute } from "@hapi/hapi";
 
-const routes = [
+const routes: ServerRoute[] = [
   {
     method: "POST",
     path: "/users/login",
-    config: {
+    options: {
       tags: ["api"],
       description: "login",
       validate: validations.user,
@@ -22,7 +23,7 @@ const routes = [
   {
     method: "POST",
     path: "/users",
-    config: {
+    options: {
       tags: ["api"],
       description: "create a new user",
       validate: validations.user,

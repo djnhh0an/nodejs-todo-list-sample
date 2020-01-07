@@ -2,6 +2,8 @@ import { validateUser } from "../validations/user.validation";
 import { findByEmail, createUser, generateAuthToken } from "../models/user.model";
 import bcrypt from "bcrypt";
 
+// todo service shouldn't care about statusCode
+// todo service shouldn't have (request: any, h: any)
 const createNewUser = async (request: any, h: any) => {
     const _user = await findByEmail(request.email);
     if (_user)
