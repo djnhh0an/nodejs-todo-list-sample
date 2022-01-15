@@ -31,7 +31,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.3",
     "path": "^0.12.7",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "tsutils": "^3.17.1",
     "typescript": "^3.7.4",
     "vision": "^5.4.4"
